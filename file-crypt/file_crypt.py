@@ -148,11 +148,15 @@ class AESFileCryptInfo:
     
     # Writes over key value with zeros
     def destroy_key(self):
-        for i in range(len(self._key)):
-            self._key[i] = 0
-
+        destroy_key(self._key)
 
 ####################################################################
+
+# Write over the referenced key value with zeroes
+def destroy_key(key):
+    for i in range(len(key)):
+        key[i] = 0
+
 
 # Encrypts a file in place, appending a AESFileCryptInfo footer 
 # Input:
